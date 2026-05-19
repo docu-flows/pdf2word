@@ -282,15 +282,15 @@ function App() {
   const [, setAuth] = useState(!!localStorage.getItem('admin_token'));
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Converter />} />
         <Route path="/login" element={
-          <Login onLogin={() => { setAuth(true); window.location.href = '/admin'; }} />
+          <Login onLogin={() => { setAuth(true); window.location.href = `${process.env.PUBLIC_URL}/admin`; }} />
         } />
         <Route path="/admin" element={
           <ProtectedRoute>
-            <Admin onLogout={() => { setAuth(false); window.location.href = '/login'; }} />
+            <Admin onLogout={() => { setAuth(false); window.location.href = `${process.env.PUBLIC_URL}/login`; }} />
           </ProtectedRoute>
         } />
       </Routes>
