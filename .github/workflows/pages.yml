@@ -37,7 +37,7 @@ jobs:
       - name: Build
         env:
           CI: "false"
-          PUBLIC_URL: "/pdf2word.github.io"
+          PUBLIC_URL: "/pdf2word"
           REACT_APP_API_URL: ${{ vars.REACT_APP_API_URL }}
         run: npm run build
 
